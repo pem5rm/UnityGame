@@ -13,4 +13,16 @@ public class BulletController : MonoBehaviour {
 	void Update () {
 		
 	}
+
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log(other.tag);
+        if (other.tag == "ground")
+        {
+
+            Destroy(this.gameObject);
+
+        }
+    }
 }

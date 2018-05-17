@@ -1085,6 +1085,7 @@ extern const uint32_t Object_op_Implicit_m3574996620_MetadataUsageId;
 extern const uint32_t Object_CompareBaseObjects_m2405226032_MetadataUsageId;
 extern const uint32_t Object_IsNativeObjectAlive_m3095908075_MetadataUsageId;
 extern const uint32_t Object_get_name_m4211327027_MetadataUsageId;
+extern const uint32_t Object_Destroy_m565254235_MetadataUsageId;
 extern const RuntimeMethod* Object_CheckNullArgument_m4237608654_RuntimeMethod_var;
 extern const uint32_t Object_CheckNullArgument_m4237608654_MetadataUsageId;
 extern const uint32_t Object_ToString_m3272709752_MetadataUsageId;
@@ -1267,9 +1268,9 @@ extern const uint32_t UnitySynchronizationContext_ExecuteTasks_m1310741010_Metad
 extern String_t* _stringLiteral2738543532;
 extern const uint32_t Vector2_ToString_m1205609053_MetadataUsageId;
 extern const uint32_t Vector2_Equals_m832062989_MetadataUsageId;
+extern const uint32_t Vector2_get_magnitude_m2752892833_MetadataUsageId;
 extern const uint32_t Vector2_op_Equality_m2303255133_MetadataUsageId;
 extern const uint32_t Vector2_get_zero_m540426400_MetadataUsageId;
-extern const uint32_t Vector2_get_up_m2647420593_MetadataUsageId;
 extern const uint32_t Vector2__cctor_m2108982652_MetadataUsageId;
 extern const uint32_t Vector3_Equals_m1753054704_MetadataUsageId;
 extern const uint32_t Vector3_Normalize_m2941713846_MetadataUsageId;
@@ -18297,6 +18298,8 @@ extern "C"  bool Object_IsNativeObjectAlive_m3095908075 (RuntimeObject * __this 
 extern "C"  intptr_t Object_GetCachedPtr_m151292858 (Object_t631007953 * __this, const RuntimeMethod* method) IL2CPP_METHOD_ATTR;
 // System.String UnityEngine.Object::GetName(UnityEngine.Object)
 extern "C"  String_t* Object_GetName_m4137306623 (RuntimeObject * __this /* static, unused */, Object_t631007953 * ___obj0, const RuntimeMethod* method) IL2CPP_METHOD_ATTR;
+// System.Void UnityEngine.Object::Destroy(UnityEngine.Object,System.Single)
+extern "C"  void Object_Destroy_m3118546832 (RuntimeObject * __this /* static, unused */, Object_t631007953 * ___obj0, float ___t1, const RuntimeMethod* method) IL2CPP_METHOD_ATTR;
 // System.String UnityEngine.Object::ToString(UnityEngine.Object)
 extern "C"  String_t* Object_ToString_m1579850521 (RuntimeObject * __this /* static, unused */, Object_t631007953 * ___obj0, const RuntimeMethod* method) IL2CPP_METHOD_ATTR;
 // System.Void UnityEngine.Playables.Playable::.ctor(UnityEngine.Playables.PlayableHandle)
@@ -18669,6 +18672,8 @@ extern "C"  String_t* Vector2_ToString_m1205609053 (Vector2_t2156229523 * __this
 extern "C"  int32_t Vector2_GetHashCode_m3916089713 (Vector2_t2156229523 * __this, const RuntimeMethod* method) IL2CPP_METHOD_ATTR;
 // System.Boolean UnityEngine.Vector2::Equals(System.Object)
 extern "C"  bool Vector2_Equals_m832062989 (Vector2_t2156229523 * __this, RuntimeObject * ___other0, const RuntimeMethod* method) IL2CPP_METHOD_ATTR;
+// System.Single UnityEngine.Vector2::get_magnitude()
+extern "C"  float Vector2_get_magnitude_m2752892833 (Vector2_t2156229523 * __this, const RuntimeMethod* method) IL2CPP_METHOD_ATTR;
 // System.Single UnityEngine.Vector2::get_sqrMagnitude()
 extern "C"  float Vector2_get_sqrMagnitude_m837837635 (Vector2_t2156229523 * __this, const RuntimeMethod* method) IL2CPP_METHOD_ATTR;
 // UnityEngine.Vector2 UnityEngine.Vector2::op_Subtraction(UnityEngine.Vector2,UnityEngine.Vector2)
@@ -27471,16 +27476,6 @@ extern "C"  float Input_GetAxis_m4009438427 (RuntimeObject * __this /* static, u
 	float retVal = _il2cpp_icall_func(___axisName0);
 	return retVal;
 }
-// System.Single UnityEngine.Input::GetAxisRaw(System.String)
-extern "C"  float Input_GetAxisRaw_m2316819917 (RuntimeObject * __this /* static, unused */, String_t* ___axisName0, const RuntimeMethod* method)
-{
-	typedef float (*Input_GetAxisRaw_m2316819917_ftn) (String_t*);
-	static Input_GetAxisRaw_m2316819917_ftn _il2cpp_icall_func;
-	if (!_il2cpp_icall_func)
-	_il2cpp_icall_func = (Input_GetAxisRaw_m2316819917_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Input::GetAxisRaw(System.String)");
-	float retVal = _il2cpp_icall_func(___axisName0);
-	return retVal;
-}
 // System.Boolean UnityEngine.Input::GetButton(System.String)
 extern "C"  bool Input_GetButton_m2064261504 (RuntimeObject * __this /* static, unused */, String_t* ___buttonName0, const RuntimeMethod* method)
 {
@@ -31392,6 +31387,34 @@ IL_000d:
 	{
 		String_t* L_1 = V_0;
 		return L_1;
+	}
+}
+// System.Void UnityEngine.Object::Destroy(UnityEngine.Object,System.Single)
+extern "C"  void Object_Destroy_m3118546832 (RuntimeObject * __this /* static, unused */, Object_t631007953 * ___obj0, float ___t1, const RuntimeMethod* method)
+{
+	typedef void (*Object_Destroy_m3118546832_ftn) (Object_t631007953 *, float);
+	static Object_Destroy_m3118546832_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (Object_Destroy_m3118546832_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Object::Destroy(UnityEngine.Object,System.Single)");
+	_il2cpp_icall_func(___obj0, ___t1);
+}
+// System.Void UnityEngine.Object::Destroy(UnityEngine.Object)
+extern "C"  void Object_Destroy_m565254235 (RuntimeObject * __this /* static, unused */, Object_t631007953 * ___obj0, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_method (Object_Destroy_m565254235_MetadataUsageId);
+		s_Il2CppMethodInitialized = true;
+	}
+	float V_0 = 0.0f;
+	{
+		V_0 = (0.0f);
+		Object_t631007953 * L_0 = ___obj0;
+		float L_1 = V_0;
+		IL2CPP_RUNTIME_CLASS_INIT(Object_t631007953_il2cpp_TypeInfo_var);
+		Object_Destroy_m3118546832(NULL /*static, unused*/, L_0, L_1, /*hidden argument*/NULL);
+		return;
 	}
 }
 // System.Void UnityEngine.Object::set_hideFlags(UnityEngine.HideFlags)
@@ -38831,6 +38854,38 @@ extern "C"  bool Vector2_Equals_m832062989_AdjustorThunk (RuntimeObject * __this
 	Vector2_t2156229523 * _thisAdjusted = reinterpret_cast<Vector2_t2156229523 *>(__this + 1);
 	return Vector2_Equals_m832062989(_thisAdjusted, ___other0, method);
 }
+// System.Single UnityEngine.Vector2::get_magnitude()
+extern "C"  float Vector2_get_magnitude_m2752892833 (Vector2_t2156229523 * __this, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_method (Vector2_get_magnitude_m2752892833_MetadataUsageId);
+		s_Il2CppMethodInitialized = true;
+	}
+	float V_0 = 0.0f;
+	{
+		float L_0 = __this->get_x_0();
+		float L_1 = __this->get_x_0();
+		float L_2 = __this->get_y_1();
+		float L_3 = __this->get_y_1();
+		IL2CPP_RUNTIME_CLASS_INIT(Mathf_t3464937446_il2cpp_TypeInfo_var);
+		float L_4 = sqrtf(((float)il2cpp_codegen_add((float)((float)il2cpp_codegen_multiply((float)L_0, (float)L_1)), (float)((float)il2cpp_codegen_multiply((float)L_2, (float)L_3)))));
+		V_0 = L_4;
+		goto IL_0027;
+	}
+
+IL_0027:
+	{
+		float L_5 = V_0;
+		return L_5;
+	}
+}
+extern "C"  float Vector2_get_magnitude_m2752892833_AdjustorThunk (RuntimeObject * __this, const RuntimeMethod* method)
+{
+	Vector2_t2156229523 * _thisAdjusted = reinterpret_cast<Vector2_t2156229523 *>(__this + 1);
+	return Vector2_get_magnitude_m2752892833(_thisAdjusted, method);
+}
 // System.Single UnityEngine.Vector2::get_sqrMagnitude()
 extern "C"  float Vector2_get_sqrMagnitude_m837837635 (Vector2_t2156229523 * __this, const RuntimeMethod* method)
 {
@@ -38855,29 +38910,6 @@ extern "C"  float Vector2_get_sqrMagnitude_m837837635_AdjustorThunk (RuntimeObje
 	Vector2_t2156229523 * _thisAdjusted = reinterpret_cast<Vector2_t2156229523 *>(__this + 1);
 	return Vector2_get_sqrMagnitude_m837837635(_thisAdjusted, method);
 }
-// UnityEngine.Vector2 UnityEngine.Vector2::op_Addition(UnityEngine.Vector2,UnityEngine.Vector2)
-extern "C"  Vector2_t2156229523  Vector2_op_Addition_m800700293 (RuntimeObject * __this /* static, unused */, Vector2_t2156229523  ___a0, Vector2_t2156229523  ___b1, const RuntimeMethod* method)
-{
-	Vector2_t2156229523  V_0;
-	memset(&V_0, 0, sizeof(V_0));
-	{
-		float L_0 = (&___a0)->get_x_0();
-		float L_1 = (&___b1)->get_x_0();
-		float L_2 = (&___a0)->get_y_1();
-		float L_3 = (&___b1)->get_y_1();
-		Vector2_t2156229523  L_4;
-		memset(&L_4, 0, sizeof(L_4));
-		Vector2__ctor_m3970636864((&L_4), ((float)il2cpp_codegen_add((float)L_0, (float)L_1)), ((float)il2cpp_codegen_add((float)L_2, (float)L_3)), /*hidden argument*/NULL);
-		V_0 = L_4;
-		goto IL_002a;
-	}
-
-IL_002a:
-	{
-		Vector2_t2156229523  L_5 = V_0;
-		return L_5;
-	}
-}
 // UnityEngine.Vector2 UnityEngine.Vector2::op_Subtraction(UnityEngine.Vector2,UnityEngine.Vector2)
 extern "C"  Vector2_t2156229523  Vector2_op_Subtraction_m73004381 (RuntimeObject * __this /* static, unused */, Vector2_t2156229523  ___a0, Vector2_t2156229523  ___b1, const RuntimeMethod* method)
 {
@@ -38896,29 +38928,6 @@ extern "C"  Vector2_t2156229523  Vector2_op_Subtraction_m73004381 (RuntimeObject
 	}
 
 IL_002a:
-	{
-		Vector2_t2156229523  L_5 = V_0;
-		return L_5;
-	}
-}
-// UnityEngine.Vector2 UnityEngine.Vector2::op_Multiply(System.Single,UnityEngine.Vector2)
-extern "C"  Vector2_t2156229523  Vector2_op_Multiply_m3294489634 (RuntimeObject * __this /* static, unused */, float ___d0, Vector2_t2156229523  ___a1, const RuntimeMethod* method)
-{
-	Vector2_t2156229523  V_0;
-	memset(&V_0, 0, sizeof(V_0));
-	{
-		float L_0 = (&___a1)->get_x_0();
-		float L_1 = ___d0;
-		float L_2 = (&___a1)->get_y_1();
-		float L_3 = ___d0;
-		Vector2_t2156229523  L_4;
-		memset(&L_4, 0, sizeof(L_4));
-		Vector2__ctor_m3970636864((&L_4), ((float)il2cpp_codegen_multiply((float)L_0, (float)L_1)), ((float)il2cpp_codegen_multiply((float)L_2, (float)L_3)), /*hidden argument*/NULL);
-		V_0 = L_4;
-		goto IL_001e;
-	}
-
-IL_001e:
 	{
 		Vector2_t2156229523  L_5 = V_0;
 		return L_5;
@@ -38988,30 +38997,6 @@ extern "C"  Vector2_t2156229523  Vector2_get_zero_m540426400 (RuntimeObject * __
 	{
 		IL2CPP_RUNTIME_CLASS_INIT(Vector2_t2156229523_il2cpp_TypeInfo_var);
 		Vector2_t2156229523  L_0 = ((Vector2_t2156229523_StaticFields*)il2cpp_codegen_static_fields_for(Vector2_t2156229523_il2cpp_TypeInfo_var))->get_zeroVector_2();
-		V_0 = L_0;
-		goto IL_000c;
-	}
-
-IL_000c:
-	{
-		Vector2_t2156229523  L_1 = V_0;
-		return L_1;
-	}
-}
-// UnityEngine.Vector2 UnityEngine.Vector2::get_up()
-extern "C"  Vector2_t2156229523  Vector2_get_up_m2647420593 (RuntimeObject * __this /* static, unused */, const RuntimeMethod* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_method (Vector2_get_up_m2647420593_MetadataUsageId);
-		s_Il2CppMethodInitialized = true;
-	}
-	Vector2_t2156229523  V_0;
-	memset(&V_0, 0, sizeof(V_0));
-	{
-		IL2CPP_RUNTIME_CLASS_INIT(Vector2_t2156229523_il2cpp_TypeInfo_var);
-		Vector2_t2156229523  L_0 = ((Vector2_t2156229523_StaticFields*)il2cpp_codegen_static_fields_for(Vector2_t2156229523_il2cpp_TypeInfo_var))->get_upVector_4();
 		V_0 = L_0;
 		goto IL_000c;
 	}

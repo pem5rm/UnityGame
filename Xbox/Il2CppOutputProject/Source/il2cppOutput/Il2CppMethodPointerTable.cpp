@@ -20441,7 +20441,6 @@ extern "C" void GUIElement__ctor_m3257342989 ();
 extern "C" void GUILayer_HitTest_m512928460 ();
 extern "C" void GUILayer_INTERNAL_CALL_HitTest_m1069802956 ();
 extern "C" void Input_GetAxis_m4009438427 ();
-extern "C" void Input_GetAxisRaw_m2316819917 ();
 extern "C" void Input_GetButton_m2064261504 ();
 extern "C" void Input_GetMouseButton_m513753021 ();
 extern "C" void Input_GetMouseButtonDown_m2081676745 ();
@@ -20568,6 +20567,8 @@ extern "C" void Object_CompareBaseObjects_m2405226032 ();
 extern "C" void Object_IsNativeObjectAlive_m3095908075 ();
 extern "C" void Object_GetCachedPtr_m151292858 ();
 extern "C" void Object_get_name_m4211327027 ();
+extern "C" void Object_Destroy_m3118546832 ();
+extern "C" void Object_Destroy_m565254235 ();
 extern "C" void Object_set_hideFlags_m1648752846 ();
 extern "C" void Object_CheckNullArgument_m4237608654 ();
 extern "C" void Object_ToString_m3272709752 ();
@@ -20778,14 +20779,12 @@ extern "C" void Vector2__ctor_m3970636864_AdjustorThunk ();
 extern "C" void Vector2_ToString_m1205609053_AdjustorThunk ();
 extern "C" void Vector2_GetHashCode_m3916089713_AdjustorThunk ();
 extern "C" void Vector2_Equals_m832062989_AdjustorThunk ();
+extern "C" void Vector2_get_magnitude_m2752892833_AdjustorThunk ();
 extern "C" void Vector2_get_sqrMagnitude_m837837635_AdjustorThunk ();
-extern "C" void Vector2_op_Addition_m800700293 ();
 extern "C" void Vector2_op_Subtraction_m73004381 ();
-extern "C" void Vector2_op_Multiply_m3294489634 ();
 extern "C" void Vector2_op_Equality_m2303255133 ();
 extern "C" void Vector2_op_Implicit_m4260192859 ();
 extern "C" void Vector2_get_zero_m540426400 ();
-extern "C" void Vector2_get_up_m2647420593 ();
 extern "C" void Vector2__cctor_m2108982652 ();
 extern "C" void Vector3__ctor_m3353183577_AdjustorThunk ();
 extern "C" void Vector3_GetHashCode_m2879461828_AdjustorThunk ();
@@ -21133,8 +21132,11 @@ extern "C" void Physics2D_GetRayIntersectionAll_Internal_Injected_m1793592321 ()
 extern "C" void Physics2D_GetRayIntersectionNonAlloc_Internal_Injected_m3091622535 ();
 extern "C" void Rigidbody2D_get_velocity_m366589732 ();
 extern "C" void Rigidbody2D_set_velocity_m2898400508 ();
+extern "C" void Rigidbody2D_AddForce_m1113499586 ();
+extern "C" void Rigidbody2D_AddForce_m1099013366 ();
 extern "C" void Rigidbody2D_get_velocity_Injected_m2170787103 ();
 extern "C" void Rigidbody2D_set_velocity_Injected_m1505462814 ();
+extern "C" void Rigidbody2D_AddForce_Injected_m534098484 ();
 extern "C" void Physics_Raycast_m234523501 ();
 extern "C" void Physics_Raycast_m1896872038 ();
 extern "C" void Physics_Raycast_m952690504 ();
@@ -22503,6 +22505,7 @@ extern "C" void ValueProperty_get_target_m1728151320 ();
 extern "C" void ValueProperty_IsValid_m3724034537 ();
 extern "C" void BulletController_Start_m2193310410 ();
 extern "C" void BulletController_Update_m3137663766 ();
+extern "C" void BulletController_OnTriggerEnter2D_m2287572358 ();
 extern "C" void BulletController__ctor_m1432626990 ();
 extern "C" void GroundCheck_Start_m1371965780 ();
 extern "C" void GroundCheck_Update_m195578486 ();
@@ -22518,11 +22521,10 @@ extern "C" void InstantiateBullet_InstantiateObject_m1946908393 ();
 extern "C" void InstantiateBullet__ctor_m2738229690 ();
 extern "C" void PlayerController_Start_m1746698410 ();
 extern "C" void PlayerController_FixedUpdate_m1610259746 ();
-extern "C" void PlayerController_Move_m3894814615 ();
-extern "C" void PlayerController_Jump_m824721926 ();
+extern "C" void PlayerController_Move_m4157780474 ();
 extern "C" void PlayerController_StartMoving_m2492158728 ();
 extern "C" void PlayerController__ctor_m1333951952 ();
-extern const Il2CppMethodPointer g_MethodPointers[22503] = 
+extern const Il2CppMethodPointer g_MethodPointers[22505] = 
 {
 	U3CPrivateImplementationDetailsU3E_ComputeStringHash_m4063532059,
 	Locale_GetText_m3374010885,
@@ -42946,7 +42948,6 @@ extern const Il2CppMethodPointer g_MethodPointers[22503] =
 	GUILayer_HitTest_m512928460,
 	GUILayer_INTERNAL_CALL_HitTest_m1069802956,
 	Input_GetAxis_m4009438427,
-	Input_GetAxisRaw_m2316819917,
 	Input_GetButton_m2064261504,
 	Input_GetMouseButton_m513753021,
 	Input_GetMouseButtonDown_m2081676745,
@@ -43073,6 +43074,8 @@ extern const Il2CppMethodPointer g_MethodPointers[22503] =
 	Object_IsNativeObjectAlive_m3095908075,
 	Object_GetCachedPtr_m151292858,
 	Object_get_name_m4211327027,
+	Object_Destroy_m3118546832,
+	Object_Destroy_m565254235,
 	Object_set_hideFlags_m1648752846,
 	Object_CheckNullArgument_m4237608654,
 	Object_ToString_m3272709752,
@@ -43283,14 +43286,12 @@ extern const Il2CppMethodPointer g_MethodPointers[22503] =
 	Vector2_ToString_m1205609053_AdjustorThunk,
 	Vector2_GetHashCode_m3916089713_AdjustorThunk,
 	Vector2_Equals_m832062989_AdjustorThunk,
+	Vector2_get_magnitude_m2752892833_AdjustorThunk,
 	Vector2_get_sqrMagnitude_m837837635_AdjustorThunk,
-	Vector2_op_Addition_m800700293,
 	Vector2_op_Subtraction_m73004381,
-	Vector2_op_Multiply_m3294489634,
 	Vector2_op_Equality_m2303255133,
 	Vector2_op_Implicit_m4260192859,
 	Vector2_get_zero_m540426400,
-	Vector2_get_up_m2647420593,
 	Vector2__cctor_m2108982652,
 	Vector3__ctor_m3353183577_AdjustorThunk,
 	Vector3_GetHashCode_m2879461828_AdjustorThunk,
@@ -43638,8 +43639,11 @@ extern const Il2CppMethodPointer g_MethodPointers[22503] =
 	Physics2D_GetRayIntersectionNonAlloc_Internal_Injected_m3091622535,
 	Rigidbody2D_get_velocity_m366589732,
 	Rigidbody2D_set_velocity_m2898400508,
+	Rigidbody2D_AddForce_m1113499586,
+	Rigidbody2D_AddForce_m1099013366,
 	Rigidbody2D_get_velocity_Injected_m2170787103,
 	Rigidbody2D_set_velocity_Injected_m1505462814,
+	Rigidbody2D_AddForce_Injected_m534098484,
 	Physics_Raycast_m234523501,
 	Physics_Raycast_m1896872038,
 	Physics_Raycast_m952690504,
@@ -45008,6 +45012,7 @@ extern const Il2CppMethodPointer g_MethodPointers[22503] =
 	ValueProperty_IsValid_m3724034537,
 	BulletController_Start_m2193310410,
 	BulletController_Update_m3137663766,
+	BulletController_OnTriggerEnter2D_m2287572358,
 	BulletController__ctor_m1432626990,
 	GroundCheck_Start_m1371965780,
 	GroundCheck_Update_m195578486,
@@ -45023,8 +45028,7 @@ extern const Il2CppMethodPointer g_MethodPointers[22503] =
 	InstantiateBullet__ctor_m2738229690,
 	PlayerController_Start_m1746698410,
 	PlayerController_FixedUpdate_m1610259746,
-	PlayerController_Move_m3894814615,
-	PlayerController_Jump_m824721926,
+	PlayerController_Move_m4157780474,
 	PlayerController_StartMoving_m2492158728,
 	PlayerController__ctor_m1333951952,
 };
