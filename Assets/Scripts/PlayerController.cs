@@ -59,8 +59,7 @@ public class PlayerController : MonoBehaviour
         Vector2 moveVel = myBody.velocity;
         moveVel.x = Mathf.Lerp(0, horizonalInput * acceleration * 10f, 0.8f);
         moveVel.y = Mathf.Lerp(0, verticalInput * acceleration * 10f, 0.8f);
-        if (myBody.velocity.magnitude < moveVel.magnitude)
-            myBody.AddForce(moveVel);
+        myBody.AddForce(moveVel);
         
         
 
