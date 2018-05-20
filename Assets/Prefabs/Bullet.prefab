@@ -99,8 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b948991d850b3aa479086e1635b70912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletHitClip: {fileID: 8300000, guid: b9db2f6098e8b4742aaff2bf4e349bc4, type: 3}
-  bulletHitSource: {fileID: 0}
+  rangeTime: 0.5
 --- !u!212 &212028020155394844
 SpriteRenderer:
   m_ObjectHideFlags: 1

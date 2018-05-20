@@ -22,7 +22,7 @@ public class GunController : MonoBehaviour {
 
         else
         {
-            transform.rotation = Quaternion.AngleAxis(0, Vector3.back);
+            transform.rotation = GetComponentInParent<Transform>().rotation;
         }
 
 
