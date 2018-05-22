@@ -21,7 +21,7 @@ public class BulletCheck : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.tag);
+        //Debug.Log(other.tag);
 
         if (other.tag == "bullet")
         {

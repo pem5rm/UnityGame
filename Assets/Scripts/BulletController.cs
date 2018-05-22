@@ -43,7 +43,7 @@ public class BulletController : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other)
     {
 
-        Debug.Log(other.tag);
+        //Debug.Log(other.tag);
         if (other.tag == "ground")
         {
             RockController rockController = other.GetComponent<RockController>();
@@ -52,6 +52,9 @@ public class BulletController : MonoBehaviour {
                 if (rockController.charge < rockController.maxCharge) { 
                     rockController.charge += 1;
                     rockController.PlaySound("rockHit");
+
+                    if (rockController.charge == rockController.maxCharge)
+                        rockController.GetComponent<SpriteRenderer>().sprite = rockController.rockFireSprite;
                 }
 
                 else if (!rockController.beginLaunch && myBody != null){

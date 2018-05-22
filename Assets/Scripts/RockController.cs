@@ -7,6 +7,7 @@ public class RockController : MonoBehaviour {
     public float maxCharge, chargeLossDelay, lastHit, charge, launchSpeed, launchMaxSpeed;
     public Vector2 launchDirection;
     public bool beginLaunch;
+    public Sprite rockFireSprite;
 
     public AudioClip rockHitClip, rockLaunchClip;
     public AudioSource rockSource;

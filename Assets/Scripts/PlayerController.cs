@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
- 
+using UnityEngine.SceneManagement;
+
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
+    public int health, startingHealth;
+    public GameObject healthText;
     //public float moveSpeed, boostedMoveSpeed, maxFuel, fuelLossRate, fuelRegenRate, fuelRegenDelay;
     //public float acceleration, maxSpeed, dampening, zeroVelocityThreshold, jumpVelocity;
     //public LayerMask groundLayer;
@@ -13,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     //Transform myTrans, tagGround;
     Rigidbody2D myBody;
+   
 
     //float fuel, nextFuelRegen;
 
@@ -24,6 +28,7 @@ public class PlayerController : MonoBehaviour
         //myTrans = this.transform;
         //_shortcutFromPlayerControllerToGroundCheck = gameObject.GetComponentInChildren<GroundCheck>();
         //fuel = maxFuel;
+        health = startingHealth;
 
     }
 
@@ -52,6 +57,10 @@ public class PlayerController : MonoBehaviour
         //        fuel += fuelRegenRate;
 
         //}
+        if (health <= 0)
+            SceneManager.LoadScene(0);
+
+        healthText.GetComponent<UnityEngine.UI.Text>().text = "Health:  " + health.ToString();
     }
 
     void Move(float horizontalInput, float verticalInput, float speed)
@@ -71,5 +80,19 @@ public class PlayerController : MonoBehaviour
 
 
     }
+
     
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        Debug.Log(other.gameObject.tag);
+
+        if (other.gameObject.tag == "enemy")
+        {
+            Destroy(other.gameObject);
+            health -= 1;
+            
+        }
+    }
+
+
 }

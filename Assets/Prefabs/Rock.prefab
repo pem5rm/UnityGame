@@ -100,7 +100,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.75
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -203,6 +203,7 @@ MonoBehaviour:
   launchMaxSpeed: 300
   launchDirection: {x: 0, y: 0}
   beginLaunch: 0
+  rockFireSprite: {fileID: 21300000, guid: 94afcab0aea7e0f439a9c283f8131667, type: 3}
   rockHitClip: {fileID: 8300000, guid: 44c1c7b063e44154baf18d24e2caaf73, type: 3}
   rockLaunchClip: {fileID: 8300000, guid: a7e3a27cd2e1332409ade9664c3b079f, type: 3}
   rockSource: {fileID: 82345225079864004}
@@ -241,7 +242,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ca7eb5a3c23a852408f0f36b1e70ef5c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4b27360f24724654a868df40d7b85193, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
