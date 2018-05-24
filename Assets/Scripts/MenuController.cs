@@ -6,6 +6,8 @@ public class MenuController : MonoBehaviour {
 
     public GameObject canvas;
 
+
+    bool menuActive = false;
 	// Use this for initialization
 	void Start () {
         canvas.SetActive(false);
@@ -16,21 +18,29 @@ public class MenuController : MonoBehaviour {
         if (Input.GetButtonDown("Menu"))
         {
             Debug.Log("Menu Pressed");
-            if (!canvas.activeSelf)
+
+
+            if (canvas.activeSelf)
+            {
+                Time.timeScale = 1;
+                canvas.SetActive(false);
+                menuActive = false;
+
+            }
+            else
             {
 
                 Time.timeScale = 0;
                 canvas.SetActive(true);
-                
-            }
+                menuActive = true;
 
-            else if (canvas.activeSelf)
-            {
-                Time.timeScale = 1;
-                canvas.SetActive(false);
+
 
             }
         }
+
+        if (menuActive && !canvas.activeSelf)
+            canvas.SetActive(true);
 	}
 
     public void Resume()

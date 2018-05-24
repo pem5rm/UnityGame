@@ -5545,7 +5545,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1637428653176024, guid: 8bbfdddf736243d48b3a9f0bacaddf4d, type: 2}
-  brick: {fileID: 1829124289675176, guid: f2c5b03af77db0c48ba693be3ab5df3d, type: 2}
+  enemy1: {fileID: 1567409056869416, guid: 1786a3b50d7535d44a40fd7aa1dd0c45, type: 2}
+  brickFormation_0: {fileID: 1303950667097710, guid: bc6bd5e5a34b0d14294c8c77ff42bf79,
+    type: 2}
+  brickFormation_1: {fileID: 1406292454876618, guid: 865b6e47df808e745a15521a25482d0f,
+    type: 2}
+  brickFormation_2: {fileID: 1041258254728234, guid: 32a3b57e519b7114ab12906e7bddd5a5,
+    type: 2}
+  brickFormation_3: {fileID: 1026769867518630, guid: 69339a8d950ac7d40a8ba11def97fad2,
+    type: 2}
+  brickFormation_4: {fileID: 1026769867518630, guid: 69339a8d950ac7d40a8ba11def97fad2,
+    type: 2}
+  brickFormation_5: {fileID: 1139099735182304, guid: 83c41c4eedd890f4aacd1d384b182d03,
+    type: 2}
+  doorUp: {fileID: 0}
+  doorDown: {fileID: 0}
+  doorLeft: {fileID: 0}
+  doorRight: {fileID: 0}
+  numBrickFormations: 5
+  doorMoveDistance: 0
+  enemyCount: 0
 --- !u!212 &212002060438573924
 SpriteRenderer:
   m_ObjectHideFlags: 1

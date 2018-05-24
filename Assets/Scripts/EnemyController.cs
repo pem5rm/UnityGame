@@ -8,8 +8,9 @@ public class EnemyController : MonoBehaviour {
     public float moveSpeed, changeDirectionThresholdDistance, moveThresholdDistance, health, patrolMovementLength, patrolMoveSpeed;
     //, wiggleAmount, wiggleLength;
     public GameObject player;
-    public AudioClip enemyDeathClip;
-    public AudioSource enemyDeathSource;
+    public AudioClip enemyDeathClip, enemyAttackClip;
+    public AudioSource enemySource;
+    public int enemyType;
 
     Rigidbody2D myBody;
     float horizontal, vertical, nextPatrolMovement;
@@ -22,13 +23,13 @@ public class EnemyController : MonoBehaviour {
     int[] yPatrolMovement;
     int patrolMovementIndex;
 
+    PlayerController playerController;
 
 
     // Use this for initialization
     void Start () {
         myBody = this.GetComponent<Rigidbody2D>();
         targetCheck = gameObject.GetComponentInChildren<TargetCheck>();
-        enemyDeathSource.clip = enemyDeathClip;
         target = GameObject.FindGameObjectWithTag("Player");
 
         //enemy movement pattern while patrolling; will move in a clockwise square
@@ -42,6 +43,10 @@ public class EnemyController : MonoBehaviour {
         //nextWiggle = Time.time;
 
 
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+
+
+
     }
 
     // Update is called once per frame
@@ -50,21 +55,41 @@ public class EnemyController : MonoBehaviour {
 
         if(health <= 0)
         {
-            myBody.constraints = RigidbodyConstraints2D.None;
-            myBody.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
-            myBody.rotation += -20f;
-            GetComponent<Collider2D>().enabled = false;
-            //transform.localScale -= new Vector3(0.001f, 0.001f, 0f);
-            
+            if (enemyType == 0)
+            {
+                myBody.constraints = RigidbodyConstraints2D.None;
+                myBody.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+                myBody.rotation += -20f;
+                GetComponent<Collider2D>().enabled = false;
+                //transform.localScale -= new Vector3(0.001f, 0.001f, 0f);
+
+            }
+
+            else if(enemyType == 1)
+            {
+                myBody.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+                myBody.transform.localScale = new Vector3(transform.localScale.x -0.02f, transform.localScale.y - 0.02f, transform.localScale.z);
+                GetComponent<Collider2D>().enabled = false;
+                //transform.localScale -= new Vector3(0.001f, 0.001f, 0f);
 
 
-            if (!soundPlayed) {
-                enemyDeathSource.Play();
+
+            }
+
+            if (!soundPlayed)
+            {
+                if (!enemySource.isPlaying)
+                {
+                    enemySource.clip = enemyDeathClip;
+                    enemySource.Play();
+                }
                 soundPlayed = true;
             }
 
-            if (!enemyDeathSource.isPlaying)
+            if (!enemySource.isPlaying)
             {
+                playerController.score += 1;
+                GetComponentInParent<RoomController>().enemyCount -= 1;
                 Destroy(this.gameObject);
             }
 

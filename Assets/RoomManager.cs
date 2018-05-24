@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class RoomManager : MonoBehaviour {
 
-    public int numRooms;
-    public GameObject room;
+    public int numRooms, maxEnemiesPerRoom;
+    public GameObject room, barredDoorUp, barredDoorDown, barredDoorLeft, barredDoorRight;
 
     ArrayList rooms;
     ArrayList roomDoors;
@@ -21,7 +21,7 @@ public class RoomManager : MonoBehaviour {
         for (int i = 0; i < numRooms; i++)
         {
             int randomRoom = Random.Range(0, rooms.Count - 1);
-            int randomDirection = Random.Range(0, 3);
+            int randomDirection = Random.Range(0, 4);
             int[] newRoom = new int[2];
 
             if(randomDirection == 0)
@@ -39,7 +39,7 @@ public class RoomManager : MonoBehaviour {
                 newRoom[0] = System.Int32.Parse(rooms[randomRoom].ToString().Split(',')[0]) + 1;
                 newRoom[1] = System.Int32.Parse(rooms[randomRoom].ToString().Split(',')[1]);
             }
-            if (randomDirection == 3)
+            else if (randomDirection == 3)
             {
                 newRoom[0] = System.Int32.Parse(rooms[randomRoom].ToString().Split(',')[0]) - 1;
                 newRoom[1] = System.Int32.Parse(rooms[randomRoom].ToString().Split(',')[1]);
@@ -89,14 +89,39 @@ public class RoomManager : MonoBehaviour {
             ArrayList doors = roomDoors[i] as ArrayList;
             foreach(object door in doors) {
                 string doorString = door as string;
-                if(doorString.Equals("U"))
+                if (doorString.Equals("U"))
+                {
                     Destroy(roomPrefab.GetComponent<RoomController>().GetDoor("WallUp", "DoorUp"));
+                    GameObject doorPrefab = Instantiate(barredDoorUp, roomPrefab.GetComponent<Transform>()) as GameObject;
+                    doorPrefab.transform.position = new Vector2(roomPrefab.transform.position.x, roomPrefab.transform.position.y + 14);
+                    doorPrefab.SetActive(false);
+                }
                 else if (doorString.Equals("D"))
+                {
                     Destroy(roomPrefab.GetComponent<RoomController>().GetDoor("WallDown", "DoorDown"));
+                    GameObject doorPrefab = Instantiate(barredDoorDown, roomPrefab.GetComponent<Transform>()) as GameObject;
+                    doorPrefab.transform.position = new Vector2(roomPrefab.transform.position.x, roomPrefab.transform.position.y - 14);
+                    doorPrefab.SetActive(false);
+                }
                 else if (doorString.Equals("L"))
+                {
                     Destroy(roomPrefab.GetComponent<RoomController>().GetDoor("WallLeft", "DoorLeft"));
+                    GameObject doorPrefab = Instantiate(barredDoorLeft, roomPrefab.GetComponent<Transform>()) as GameObject;
+                    doorPrefab.transform.position = new Vector2(roomPrefab.transform.position.x - 22, roomPrefab.transform.position.y);
+                    doorPrefab.SetActive(false);
+                }
                 else if (doorString.Equals("R"))
+                {
                     Destroy(roomPrefab.GetComponent<RoomController>().GetDoor("WallRight", "DoorRight"));
+                    GameObject doorPrefab = Instantiate(barredDoorRight, roomPrefab.GetComponent<Transform>()) as GameObject;
+                    doorPrefab.transform.position = new Vector2(roomPrefab.transform.position.x + 22, roomPrefab.transform.position.y);
+                    doorPrefab.SetActive(false);
+                }
+            }
+
+            if (i != 0) { 
+                roomPrefab.GetComponent<RoomController>().SpawnBrickFormation(-1);
+                roomPrefab.GetComponent<RoomController>().SpawnEnemies(Random.Range(0, maxEnemiesPerRoom));
             }
         }
 

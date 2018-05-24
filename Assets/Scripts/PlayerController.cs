@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
-    public int health, startingHealth;
-    public GameObject healthText;
+    public int health, startingHealth, score;
+    public GameObject healthText, scoreText;
     //public float moveSpeed, boostedMoveSpeed, maxFuel, fuelLossRate, fuelRegenRate, fuelRegenDelay;
     //public float acceleration, maxSpeed, dampening, zeroVelocityThreshold, jumpVelocity;
     //public LayerMask groundLayer;
@@ -61,6 +61,8 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene(0);
 
         healthText.GetComponent<UnityEngine.UI.Text>().text = "Health:  " + health.ToString();
+        scoreText.GetComponent<UnityEngine.UI.Text>().text = "Score:  " + score.ToString();
+
     }
 
     void Move(float horizontalInput, float verticalInput, float speed)
@@ -88,9 +90,21 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.tag == "enemy")
         {
-            Destroy(other.gameObject);
+            EnemyController enemyController = other.gameObject.GetComponent<EnemyController>();
+            enemyController.enemySource.clip = enemyController.enemyAttackClip;
+            enemyController.enemySource.Play();
+
+            if (enemyController.enemyType == 0)
+            {
+                other.gameObject.GetComponentInParent<RoomController>().enemyCount -= 1;
+                other.gameObject.GetComponent<Collider2D>().enabled = false;
+                other.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                foreach (Transform t in other.gameObject.transform)
+                    Destroy(t.gameObject);
+            }
             health -= 1;
-            
+
+
         }
     }
 
