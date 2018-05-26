@@ -9,46 +9,46 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1744722445675310}
+  m_RootGameObject: {fileID: 1866117740717820}
   m_IsPrefabParent: 1
---- !u!1 &1744722445675310
+--- !u!1 &1866117740717820
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4587806257941206}
-  - component: {fileID: 212640745910900180}
-  - component: {fileID: 61888840255166122}
-  - component: {fileID: 114030064380665080}
-  - component: {fileID: 82962460941600558}
+  - component: {fileID: 4172256994063252}
+  - component: {fileID: 212522063995244714}
+  - component: {fileID: 61544913557372904}
+  - component: {fileID: 114799488863432968}
+  - component: {fileID: 82168588836654948}
   m_Layer: 0
-  m_Name: barredDoorDown
+  m_Name: lockedDoorUp
   m_TagString: door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4587806257941206
+--- !u!4 &4172256994063252
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1744722445675310}
-  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: -0.7071068}
-  m_LocalPosition: {x: 0, y: -10, z: 0}
+  m_GameObject: {fileID: 1866117740717820}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.622901, y: -7.558044, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
---- !u!61 &61888840255166122
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &61544913557372904
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1744722445675310}
+  m_GameObject: {fileID: 1866117740717820}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -68,12 +68,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.28, y: 1.28}
   m_EdgeRadius: 0
---- !u!82 &82962460941600558
+--- !u!82 &82168588836654948
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1744722445675310}
+  m_GameObject: {fileID: 1866117740717820}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -163,12 +163,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &114030064380665080
+--- !u!114 &114799488863432968
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1744722445675310}
+  m_GameObject: {fileID: 1866117740717820}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c45cf636c91c48942a2463acf821fa6c, type: 3}
@@ -176,18 +176,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 80
   currentDistance: 0
-  doorType: 0
-  direction: D
+  doorType: 1
+  direction: U
   openDoor: 0
   doorIsClosed: 0
   doorClip: {fileID: 8300000, guid: e235484bf75e16f48a4e754f87e512a1, type: 3}
-  doorSource: {fileID: 82962460941600558}
---- !u!212 &212640745910900180
+  doorSource: {fileID: 82168588836654948}
+--- !u!212 &212522063995244714
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1744722445675310}
+  m_GameObject: {fileID: 1866117740717820}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -217,7 +217,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e84a486ac9ec234cb535512e754dad1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ac7c7bef3ad992f48bba6f0f123fcf66, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

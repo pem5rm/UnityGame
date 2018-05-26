@@ -399,17 +399,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c0e354396ce5614797920aa5b3a8a6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
+  moveSpeed: 9
   changeDirectionThresholdDistance: 1
   moveThresholdDistance: 0.25
   health: 2
-  patrolMovementLength: 4
-  patrolMoveSpeed: 4
+  patrolMovementLength: 2
+  patrolMoveSpeed: 7
   player: {fileID: 0}
   enemyDeathClip: {fileID: 8300000, guid: 3120d15d8164f1c4c9b76f4459bf49d5, type: 3}
   enemyAttackClip: {fileID: 8300000, guid: 1c398db8e49562044ae3d68dacd4a07c, type: 3}
   enemySource: {fileID: 82145631531579544}
   enemyType: 0
+  animated: 0
 --- !u!212 &212142478552792754
 SpriteRenderer:
   m_ObjectHideFlags: 1

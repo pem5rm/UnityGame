@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour {
     public AudioClip enemyDeathClip, enemyAttackClip;
     public AudioSource enemySource;
     public int enemyType;
+    public bool animated;
 
     Rigidbody2D myBody;
     float horizontal, vertical, nextPatrolMovement;
@@ -25,6 +26,9 @@ public class EnemyController : MonoBehaviour {
 
     PlayerController playerController;
 
+    //Animation
+    Animator anim;
+    int followHash = Animator.StringToHash("enemyFollow");
 
     // Use this for initialization
     void Start () {
@@ -32,8 +36,12 @@ public class EnemyController : MonoBehaviour {
         targetCheck = gameObject.GetComponentInChildren<TargetCheck>();
         target = GameObject.FindGameObjectWithTag("Player");
 
+        //Animation
+        if(animated)
+            anim = GetComponent<Animator>();
+
         //enemy movement pattern while patrolling; will move in a clockwise square
-        xPatrolMovement = new int[] { 1, 0, -1, 0 };
+            xPatrolMovement = new int[] { 1, 0, -1, 0 };
         yPatrolMovement = new int[] { 0, -1, 0, 1 };
         //choose a random starting movement
         patrolMovementIndex = Random.Range(0, 3);
@@ -61,6 +69,7 @@ public class EnemyController : MonoBehaviour {
                 myBody.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
                 myBody.rotation += -20f;
                 GetComponent<Collider2D>().enabled = false;
+                GetComponentInChildren<BulletCheck>().gameObject.GetComponent<Collider2D>().enabled = false; 
                 //transform.localScale -= new Vector3(0.001f, 0.001f, 0f);
 
             }
@@ -70,6 +79,7 @@ public class EnemyController : MonoBehaviour {
                 myBody.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
                 myBody.transform.localScale = new Vector3(transform.localScale.x -0.02f, transform.localScale.y - 0.02f, transform.localScale.z);
                 GetComponent<Collider2D>().enabled = false;
+                GetComponentInChildren<BulletCheck>().gameObject.GetComponent<Collider2D>().enabled = false;
                 //transform.localScale -= new Vector3(0.001f, 0.001f, 0f);
 
 
@@ -96,8 +106,12 @@ public class EnemyController : MonoBehaviour {
         }
 
         //folow target
+        Vector2 moveVel = myBody.velocity;
+
         if (targetCheck.follow)
         {
+            if (animated)
+                anim.SetTrigger(followHash);
             target = targetCheck.target;
             //if target is close, move sdirectly to it
             if (Vector2.Distance(target.transform.position, transform.position) < moveThresholdDistance) { 
@@ -146,7 +160,13 @@ public class EnemyController : MonoBehaviour {
                     vertical = 0;
             }
 
-    }
+
+
+            moveVel.x = Mathf.Lerp(0, horizontal * 20f, 0.8f);
+            moveVel.y = Mathf.Lerp(0, vertical * 20f, 0.8f);
+            myBody.AddForce(moveVel.normalized * 20f * moveSpeed);
+
+        }
 
         //search for target
         else
@@ -195,14 +215,23 @@ public class EnemyController : MonoBehaviour {
                 else
                     patrolMovementIndex = 0;
             }
+
+
             horizontal = xPatrolMovement[patrolMovementIndex] * patrolMoveSpeed;
             vertical = yPatrolMovement[patrolMovementIndex] * patrolMoveSpeed;
+
+
+            moveVel.x = Mathf.Lerp(0, horizontal * 20f, 0.8f);
+            moveVel.y = Mathf.Lerp(0, vertical * 20f, 0.8f);
+            myBody.AddForce(moveVel.normalized * 20f * patrolMoveSpeed);
+
         }
 
-        Vector2 moveVel = myBody.velocity;
-        moveVel.x = Mathf.Lerp(0, horizontal * 20f, 0.8f);
-        moveVel.y = Mathf.Lerp(0, vertical * 20f, 0.8f);
-        myBody.AddForce(moveVel);
+
+        //Vector2 moveVel = myBody.velocity;
+        //moveVel.x = Mathf.Lerp(0, horizontal * 20f, 0.8f);
+        //moveVel.y = Mathf.Lerp(0, vertical * 20f, 0.8f);
+        //myBody.AddForce(moveVel);
 
         if (health > 0)
         {

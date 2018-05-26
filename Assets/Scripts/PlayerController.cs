@@ -16,7 +16,9 @@ public class PlayerController : MonoBehaviour
 
     //Transform myTrans, tagGround;
     Rigidbody2D myBody;
-   
+
+    //Collectibles
+    public int keys;
 
     //float fuel, nextFuelRegen;
 
@@ -71,13 +73,13 @@ public class PlayerController : MonoBehaviour
         Vector2 moveVel = myBody.velocity;
         moveVel.x = Mathf.Lerp(0, horizontalInput * speed * 10f, 0.8f);
         moveVel.y = Mathf.Lerp(0, verticalInput * speed * 10f, 0.8f);
-        myBody.AddForce(moveVel);
+        myBody.AddForce(moveVel.normalized * speed * 10f);
 
 
-        if (horizontalInput >= 0)
-            transform.localRotation = Quaternion.Euler(0, 0, 0);
-        else
-            transform.localRotation = Quaternion.Euler(0, 180, 0);
+        //if (horizontalInput >= 0)
+        //    transform.localRotation = Quaternion.Euler(0, 0, 0);
+        //else
+        //    transform.localRotation = Quaternion.Euler(0, 180, 0);
 
 
 
@@ -86,7 +88,7 @@ public class PlayerController : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log(other.gameObject.tag);
+        //Debug.Log(other.gameObject.tag);
 
         if (other.gameObject.tag == "enemy")
         {

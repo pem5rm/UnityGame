@@ -9,77 +9,81 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1744722445675310}
+  m_RootGameObject: {fileID: 1929071182392318}
   m_IsPrefabParent: 1
---- !u!1 &1744722445675310
+--- !u!1 &1351990506435634
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4587806257941206}
-  - component: {fileID: 212640745910900180}
-  - component: {fileID: 61888840255166122}
-  - component: {fileID: 114030064380665080}
-  - component: {fileID: 82962460941600558}
+  - component: {fileID: 4527790278181006}
+  - component: {fileID: 114250317811159384}
+  - component: {fileID: 82670749080418474}
   m_Layer: 0
-  m_Name: barredDoorDown
-  m_TagString: door
+  m_Name: BulletInstantiater
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4587806257941206
+--- !u!1 &1929071182392318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4412217136080808}
+  - component: {fileID: 212966843739564424}
+  - component: {fileID: 114829460449883162}
+  m_Layer: 0
+  m_Name: Laser Rifle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4412217136080808
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1744722445675310}
-  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: -0.7071068}
-  m_LocalPosition: {x: 0, y: -10, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
-  m_Children: []
+  m_GameObject: {fileID: 1929071182392318}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.077, z: -1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.5}
+  m_Children:
+  - {fileID: 4527790278181006}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
---- !u!61 &61888840255166122
-BoxCollider2D:
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4527790278181006
+Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1744722445675310}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
-    newSize: {x: 1.28, y: 1.28}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.28, y: 1.28}
-  m_EdgeRadius: 0
---- !u!82 &82962460941600558
+  m_GameObject: {fileID: 1351990506435634}
+  m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
+  m_LocalPosition: {x: 0.625, y: 0.161, z: 2.2812293}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_Children: []
+  m_Father: {fileID: 4412217136080808}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
+--- !u!82 &82670749080418474
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1744722445675310}
+  m_GameObject: {fileID: 1351990506435634}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -132,7 +136,7 @@ AudioSource:
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -162,32 +166,43 @@ AudioSource:
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!114 &114030064380665080
+    m_RotationOrder: 0
+--- !u!114 &114250317811159384
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1744722445675310}
+  m_GameObject: {fileID: 1351990506435634}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c45cf636c91c48942a2463acf821fa6c, type: 3}
+  m_Script: {fileID: 11500000, guid: e08764736793baf4dbfd1672b969116f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 80
-  currentDistance: 0
-  doorType: 0
-  direction: D
-  openDoor: 0
-  doorIsClosed: 0
-  doorClip: {fileID: 8300000, guid: e235484bf75e16f48a4e754f87e512a1, type: 3}
-  doorSource: {fileID: 82962460941600558}
---- !u!212 &212640745910900180
+  bullet: {fileID: 1867976004027018, guid: 38d35575025974241b37549fe6fee9b2, type: 2}
+  bulletSpeed: 30
+  rateOfFire: 0.05
+  laserClip: {fileID: 8300000, guid: d11edf5087005604b902716c976586a5, type: 3}
+  laserSource: {fileID: 82670749080418474}
+--- !u!114 &114829460449883162
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1929071182392318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab28b61ab7b4ebe469892f81575eb34c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  x: 0
+  y: 0
+  mousePos: {x: 0, y: 0, z: 0}
+--- !u!212 &212966843739564424
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1744722445675310}
+  m_GameObject: {fileID: 1929071182392318}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -217,7 +232,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e84a486ac9ec234cb535512e754dad1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 46ded03051c921f45a629dcc9d0f9c66, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class RoomController : MonoBehaviour
 {
-    public GameObject enemy, enemy1; 
+    public GameObject enemy, enemy1;
+    public GameObject key;
     public GameObject brickFormation_0, brickFormation_1, brickFormation_2, brickFormation_3, brickFormation_4, brickFormation_5;
     public GameObject doorUp, doorDown, doorLeft, doorRight;
     public int numBrickFormations, doorMoveDistance, enemyCount = 0;
@@ -22,7 +23,7 @@ public class RoomController : MonoBehaviour
     {
         mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
         player = GameObject.Find("Player");
-        Debug.Log(mainCamera.ToString());
+        //Debug.Log(mainCamera.ToString());
 
 
     }
@@ -32,7 +33,7 @@ public class RoomController : MonoBehaviour
     {
         if (PlayerInRoom(player))
         {
-            Debug.Log(transform.position);
+            //Debug.Log(transform.position);
             mainCamera.transform.position = new Vector3(transform.position.x, transform.position.y, mainCamera.transform.position.z);
 
             if (!enemiesActivated)
@@ -143,16 +144,36 @@ public class RoomController : MonoBehaviour
         for (int i = 0; i < numEnemies; i++) {
             float x = Random.Range(transform.position.x - 15, transform.position.x + 15);
             float y = Random.Range(transform.position.y - 7, transform.position.y + 7);
-            int enemyType = Random.Range(0, 2);
+            int enemyType = Random.Range(0, 3);
             if (!Physics2D.OverlapCircle(new Vector2(x, y), 2))
             {
-                if(enemyType == 0)
+                if(enemyType < 2)
                     enemyPrefab = Instantiate(enemy, transform) as GameObject;
-                else if(enemyType == 1)
+                else if(enemyType == 2)
                     enemyPrefab = Instantiate(enemy1, transform) as GameObject;
                 enemyPrefab.transform.position = new Vector2(x, y);
                 enemyPrefab.SetActive(false);
                 enemyCount += 1;
+            }
+            else
+                i -= 1;
+        }
+
+    }
+
+
+    public void SpawnKey()
+    {
+        GameObject keyPrefab = null;
+        for (int i = 0; i < 1; i++)
+        {
+            float x = Random.Range(transform.position.x - 15, transform.position.x + 15);
+            float y = Random.Range(transform.position.y - 7, transform.position.y + 7);
+            if (!Physics2D.OverlapCircle(new Vector2(x, y), 2))
+            {
+                keyPrefab = Instantiate(key, transform) as GameObject;
+                keyPrefab.transform.position = new Vector2(x, y);
+
             }
             else
                 i -= 1;

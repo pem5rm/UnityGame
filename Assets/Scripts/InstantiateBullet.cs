@@ -13,10 +13,12 @@ public class InstantiateBullet : MonoBehaviour {
 
 
     private float lastShot = 0.0f;
+    GunController gunController;
 
 	// Use this for initialization
 	void Start () {
         laserSource.clip = laserClip;
+        gunController = GetComponentInParent<GunController>();
 	}
 	
 	// Update is called once per frame
@@ -34,20 +36,31 @@ public class InstantiateBullet : MonoBehaviour {
 
     private void InstantiateObject()
     {
-        var x = Input.GetAxis("Horizontal2");
-        var y = Input.GetAxis("Vertical2");
+
+        
         GameObject bulletPrefab = Instantiate(bullet) as GameObject;
         bulletPrefab.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 2);
-        if (x != 0.0 || y != 0.0)
-        {
-            var angle = Mathf.Atan2(y, x) * Mathf.Rad2Deg;
+        //Debug.Log(gunController.x.ToString() + " "  + gunController.y.ToString());
+        //if ((gunController.x != 0.0 || gunController.y != 0.0)) // && gunController.mousePos == null)
+        //{
+            //Debug.Log("test1");
+            var angle = Mathf.Atan2(gunController.y, gunController.x) * Mathf.Rad2Deg;
             bulletPrefab.transform.rotation = Quaternion.AngleAxis(angle, Vector3.back);
-        }
+        //}
 
-        else
-        {
-            bulletPrefab.transform.rotation = Quaternion.AngleAxis(0, Vector3.back);
-        }
+        //else //if (gunController.mousePos == null)
+        //{
+        //    //Debug.Log("test2");
+        //    bulletPrefab.transform.rotation = Quaternion.AngleAxis(0, Vector3.back);
+        //}
+
+        //Mouse controls
+        //else {
+        //    var dir = Input.mousePosition - gunController.mousePos;
+        //    var angle1 = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        //    //Debug.Log(angle1);
+        //    bulletPrefab.transform.rotation = Quaternion.AngleAxis(angle1, Vector3.forward);
+        //}
         bulletPrefab.GetComponent<Rigidbody2D>().velocity = transform.up * bulletSpeed;
 
     }

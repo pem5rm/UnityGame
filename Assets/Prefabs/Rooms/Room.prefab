@@ -5546,6 +5546,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 1637428653176024, guid: 8bbfdddf736243d48b3a9f0bacaddf4d, type: 2}
   enemy1: {fileID: 1567409056869416, guid: 1786a3b50d7535d44a40fd7aa1dd0c45, type: 2}
+  key: {fileID: 1964456914534342, guid: 48732310a95827d45a3882f7e926cb49, type: 2}
   brickFormation_0: {fileID: 1303950667097710, guid: bc6bd5e5a34b0d14294c8c77ff42bf79,
     type: 2}
   brickFormation_1: {fileID: 1406292454876618, guid: 865b6e47df808e745a15521a25482d0f,

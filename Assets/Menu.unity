@@ -767,7 +767,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Space Survival
+  m_Text: The Maze
 --- !u!222 &1788084307
 CanvasRenderer:
   m_ObjectHideFlags: 0
